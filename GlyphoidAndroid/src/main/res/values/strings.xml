@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Glyphoid</string>
+	<string name="add">Add</string>
+    <string name="train">Train</string>
+    <string name="recognize">Recognize</string>
+
+    <string-array name="letters">
+        <item >0</item>
+        <item >1</item>
+        <item >2</item>
+        <item >3</item>
+        <item >4</item>
+        <item >5</item>
+        <item >6</item>
+        <item >7</item>
+        <item >8</item>
+        <item >9</item>
+        <item >.</item>
+        <item >,</item>
+        <item >+</item>
+        <item >-</item>
+        <item >*</item>
+        <item >/</item>
+        <item >=</item>
+        <item >X</item>
+        <item >(</item>
+        <item >)</item>
+        <item >[</item>
+        <item >]</item>
+        <item >tick</item>
+        <item >root</item>
+        <item >integ</item>
+        <item >A</item>
+        <item >B</item>
+        <item >C</item>
+        <item >D</item>
+        <item >E</item>
+        <item >F</item>
+        <item >G</item>
+        <item >H</item>
+        <item >I</item>
+        <item >J</item>
+        <item >K</item>
+        <item >L</item>
+        <item >M</item>
+        <item >N</item>
+        <item >O</item>
+        <item >P</item>
+        <item >Q</item>
+        <item >R</item>
+        <item >S</item>
+        <item >T</item>
+        <item >U</item>
+        <item >V</item>
+        <item >W</item>
+        <item >X</item>
+        <item >Y</item>
+        <item >Z</item>
+        <item >a</item>
+        <item >b</item>
+        <item >c</item>
+        <item >d</item>
+        <item >e</item>
+        <item >f</item>
+        <item >g</item>
+        <item >h</item>
+        <item >i</item>
+        <item >j</item>
+        <item >k</item>
+        <item >l</item>
+        <item >m</item>
+        <item >n</item>
+        <item >o</item>
+        <item >p</item>
+        <item >q</item>
+        <item >r</item>
+        <item >s</item>
+        <item >t</item>
+        <item >u</item>
+        <item >v</item>
+        <item >w</item>
+        <item >x</item>
+        <item >y</item>
+        <item >z</item>    
+        <item>gr_Ga</item>
+        <item>gr_De</item>
+        <item>gr_Th</item>
+        <item>gr_La</item>
+        <item>gr_Xi</item>
+        <item>gr_Pi</item>
+        <item>gr_Si</item>
+        <item>gr_Up</item>
+        <item>gr_Ph</item>
+        <item>gr_Ps</item>
+        <item>gr_Om</item>    
+        <item >gr_al</item>
+        <item >gr_be</item>
+        <item >gr_ga</item>
+        <item >gr_de</item>
+        <item >gr_ep</item>
+        <item >gr_ze</item>
+        <item >gr_et</item>
+        <item >gr_th</item>
+        <item >gr_io</item>
+        <item >gr_ka</item>
+        <item >gr_la</item>
+        <item >gr_mu</item>
+        <item >gr_nu</item>
+        <item >gr_xi</item>
+        <item >gr_omicron</item>
+        <item >gr_pi</item>
+        <item >gr_rh</item>
+        <item >gr_si</item>
+        <item >gr_ta</item>
+        <item >gr_up</item>
+        <item >gr_ph</item>
+        <item >gr_ch</item>
+        <item >gr_omega</item>        
+        <item >ja_hg_a</item>
+        <item >ja_hg_i</item>
+        <item >ja_hg_u</item>
+        <item >ja_hg_e</item>
+        <item >ja_hg_o</item>
+        <item >ja_hg_ka</item>
+        <item >ja_hg_ki</item>
+        <item >ja_hg_ku</item>
+        <item >ja_hg_ke</item>
+        <item >ja_hg_ko</item>
+        <item >ja_hg_sa</item>
+        <item >ja_hg_shi</item>
+        <item >ja_hg_su</item>
+        <item >ja_hg_se</item>
+        <item >ja_hg_so</item>
+    </string-array>
+    <string-array name="letters_display_names">
+        <item >0</item>
+        <item >1</item>
+        <item >2</item>
+        <item >3</item>
+        <item >4</item>
+        <item >5</item>
+        <item >6</item>
+        <item >7</item>
+        <item >8</item>
+        <item >9</item>
+        <item >dot</item>
+        <item >,</item>
+        <item >+</item>
+        <item >-</item>
+        <item >*</item>
+        <item >/</item>
+        <item >=</item>
+        <item >X</item>
+        <item >(</item>
+        <item >)</item>
+        <item >[</item>
+        <item >]</item>
+        <item >✓</item>
+        <item >sqrt</item>
+        <item >∫</item>
+        <item >A</item>
+        <item >B</item>
+        <item >C</item>
+        <item >D</item>
+        <item >E</item>
+        <item >F</item>
+        <item >G</item>
+        <item >H</item>
+        <item >I</item>
+        <item >J</item>
+        <item >K</item>
+        <item >L</item>
+        <item >M</item>
+        <item >N</item>
+        <item >O</item>
+        <item >P</item>
+        <item >Q</item>
+        <item >R</item>
+        <item >S</item>
+        <item >T</item>
+        <item >U</item>
+        <item >V</item>
+        <item >W</item>
+        <item >X</item>
+        <item >Y</item>
+        <item >Z</item>
+        <item >a</item>
+        <item >b</item>
+        <item >c</item>
+        <item >d</item>
+        <item >e</item>
+        <item >f</item>
+        <item >g</item>
+        <item >h</item>
+        <item >i</item>
+        <item >j</item>
+        <item >k</item>
+        <item >l</item>
+        <item >m</item>
+        <item >n</item>
+        <item >o</item>
+        <item >p</item>
+        <item >q</item>
+        <item >r</item>
+        <item >s</item>
+        <item >t</item>
+        <item >u</item>
+        <item >v</item>
+        <item >w</item>
+        <item >x</item>
+        <item >y</item>
+        <item >z</item>
+        <item>Γ</item>
+        <item>Δ</item>
+        <item>Θ</item>
+        <item>Λ</item>
+        <item>Ξ</item>
+        <item>Π</item>
+        <item>Σ</item>
+        <item>Υ</item>
+        <item>Φ</item>
+        <item>Ψ</item>
+        <item>Ω</item>
+        <item >α</item>
+        <item >β</item>
+        <item >γ</item>
+        <item >δ</item>
+        <item >ε</item>
+        <item >ζ</item>
+        <item >η</item>
+        <item >θ</item>
+        <item >ι</item>
+        <item >κ</item>
+        <item >λ</item>
+        <item >μ</item>
+        <item >ν</item>
+        <item >ξ</item>
+        <item >ο</item>
+        <item >π</item>
+        <item >ρ</item>
+        <item >σ</item>
+        <item >τ</item>
+        <item >υ</item>
+        <item >φ</item>
+        <item >χ</item>
+        <item >ω</item>
+        <item >あ</item>
+        <item >い</item>
+        <item >う</item>
+        <item >え</item>
+        <item >お</item>
+        <item >か</item>
+        <item >き</item>
+        <item >く</item>
+        <item >け</item>
+        <item >こ</item>
+        <item >さ</item>
+        <item >し</item>
+        <item >す</item>
+        <item >せ</item>
+        <item >そ</item>
+    </string-array>
+    
+</resources>

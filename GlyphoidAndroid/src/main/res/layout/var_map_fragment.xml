@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<me.scai.plato.android.views.ObservableScrollView
+    android:id="@+id/parserFragment"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:overScrollMode="always"
+    android:isScrollContainer="true"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:scrollbarStyle="outsideInset"
+    android:scrollbars="vertical" >
+
+    <LinearLayout
+        android:id="@+id/varMapOuterLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/varMapLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+
+        </LinearLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.10"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:layout_width="140dp"
+                android:layout_height="fill_parent"
+                android:text="Dismiss"
+                android:id="@+id/dismissVarMap"
+                android:layout_gravity="right"
+                android:textSize="14sp"
+                android:layout_row="0"
+                android:layout_column="21"
+                android:background="@drawable/button_bg_parse" />
+
+        </GridLayout>
+
+
+
+    </LinearLayout>
+
+
+
+</me.scai.plato.android.views.ObservableScrollView>

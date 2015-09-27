@@ -1,0 +1,137 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+From ThulikaTrainer:
+* .gitignore
+* TODO.txt
+* proguard-project.txt
+From handwriting:
+* .gitignore
+* .idea\
+* .idea\.name
+* .idea\compiler.xml
+* .idea\copyright\
+* .idea\copyright\profiles_settings.xml
+* .idea\encodings.xml
+* .idea\libraries\
+* .idea\libraries\Maven__com_google_code_gson_gson_1_4.xml
+* .idea\libraries\Maven__commons_lang_commons_lang_2_6.xml
+* .idea\libraries\Maven__gov_nist_math_jama_1_0_3.xml
+* .idea\libraries\Maven__junit_junit_4_12.xml
+* .idea\libraries\Maven__org_apache_commons_commons_math3_3_0.xml
+* .idea\libraries\Maven__org_encog_encog_core_3_3_0.xml
+* .idea\libraries\Maven__org_hamcrest_hamcrest_core_1_3.xml
+* .idea\misc.xml
+* .idea\modules.xml
+* .idea\scopes\
+* .idea\scopes\scope_settings.xml
+* .idea\vcs.xml
+* .idea\workspace.xml
+* graph_lang\
+* graph_lang\backup_2014-12-26\
+* graph_lang\backup_2014-12-26\productions.txt
+* graph_lang\backup_2014-12-26\stroke_curator_config.json
+* graph_lang\backup_2014-12-26\terminals.txt
+* graph_lang\backup_2014-12-28_a\
+* graph_lang\backup_2014-12-28_a\productions.txt
+* graph_lang\backup_2014-12-28_a\stroke_curator_config.json
+* graph_lang\backup_2014-12-28_a\terminals.txt
+* graph_lang\backup_2014-12-28_b\
+* graph_lang\backup_2014-12-28_b\productions.txt
+* graph_lang\backup_2014-12-28_b\stroke_curator_config.json
+* graph_lang\backup_2014-12-28_b\terminals.txt
+* graph_lang\backup_2014-12-30\
+* graph_lang\backup_2014-12-30\productions.txt
+* graph_lang\backup_2014-12-30\stroke_curator_config.json
+* graph_lang\backup_2014-12-30\terminals.txt
+* graph_lang\old_backups\
+* graph_lang\old_backups\productions_backup_1.txt
+* graph_lang\old_backups\productions_backup_2.txt
+* graph_lang\old_backups\productions_backup_3.txt
+* graph_lang\productions.txt
+* graph_lang\stroke_curator_config.json
+* graph_lang\stroke_curator_config.txt
+* graph_lang\stroke_curator_config_testCase_1.json
+* graph_lang\terminals.txt
+* handwriting-lib.iml
+* jars\
+* jars\handwriting.jar
+* pom.xml
+* target\
+* target\handwriting-lib-0.0.1-SNAPSHOT.jar
+* target\maven-archiver\
+* target\maven-archiver\pom.properties
+* target\maven-status\
+* target\maven-status\maven-compiler-plugin\
+* target\maven-status\maven-compiler-plugin\compile\
+* target\maven-status\maven-compiler-plugin\compile\default-compile\
+* target\maven-status\maven-compiler-plugin\compile\default-compile\createdFiles.lst
+* target\maven-status\maven-compiler-plugin\compile\default-compile\inputFiles.lst
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+gson-2.2.4.jar => com.google.code.gson:gson:2.2.4
+
+Potentially Missing Dependency:
+-------------------------------
+When we replaced the following .jar files with a Gradle dependency, we
+inferred the dependency version number from the filename. This
+specific version may not actually be available from the repository.
+If you get a build error stating that the dependency is missing, edit
+the version number to for example "+" to pick up the latest version
+instead. (This may require you to update your code if the library APIs
+have changed.)
+
+gson-2.2.4.jar => version 2.2.4 in com.google.code.gson:gson:2.2.4
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+In handwriting:
+* C:\Users\scai\Dropbox\javaWS\encog-java-core\jars\encog-java-core.jar => handwriting\libs\encog-java-core.jar
+* src\ => handwriting\src\main\java\
+* src\resources\config\productions.txt => handwriting\src\main\resources\resources\config\productions.txt
+* src\resources\config\stroke_curator_config.json => handwriting\src\main\resources\resources\config\stroke_curator_config.json
+* src\resources\config\stroke_curator_config_withcomments.json => handwriting\src\main\resources\resources\config\stroke_curator_config_withcomments.json
+* src\resources\config\terminals.json => handwriting\src\main\resources\resources\config\terminals.json
+* src\resources\handwriting.properties => handwriting\src\main\resources\resources\handwriting.properties
+* src\resources\terminals.json => handwriting\src\main\resources\resources\terminals.json
+* C:\Users\scai\Dropbox\javaWS\java-json\java-json.jar => handwriting\libs\java-json.jar
+* C:\Users\scai\Dropbox\javaWS\libs\commons-lang3-3.3.2\commons-lang3-3.3.2.jar => handwriting\libs\commons-lang3-3.3.2.jar
+In ThulikaTrainer:
+* AndroidManifest.xml => thulikaTrainer\src\main\AndroidManifest.xml
+* assets\ => thulikaTrainer\src\main\assets
+* lint.xml => thulikaTrainer\lint.xml
+* res\ => thulikaTrainer\src\main\res\
+* src\ => thulikaTrainer\src\main\java\
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)

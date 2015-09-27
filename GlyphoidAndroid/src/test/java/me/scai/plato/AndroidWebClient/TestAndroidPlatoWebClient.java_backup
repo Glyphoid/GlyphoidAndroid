@@ -1,0 +1,185 @@
+package me.scai.plato.AndroidWebClient;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import me.scai.handwriting.CStroke;
+import me.scai.handwriting.CWrittenToken;
+import me.scai.handwriting.CWrittenTokenSet;
+import me.scai.parsetree.HandwritingEngineException;
+import me.scai.parsetree.TokenSetParserOutput;
+import me.scai.plato.AndroidWebCient.AndroidPlatoWebClient;
+
+import org.junit.Test;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+
+
+public class TestAndroidPlatoWebClient {
+    private static final String platoHandwritingEndpoint = "http://scai.io/glyphoid/handwriting-bypass";
+    private static final String platoTokenRecogEndpoint = "http://scai.io/glyphoid/token-recog-bypass";
+
+    private static final JsonParser jsonParser = new JsonParser();
+
+    private JsonObject genMockCustomClientData() {
+        JsonObject customClientData = new JsonObject();
+
+        customClientData.add("ScreenWidth", new JsonPrimitive(600));
+        customClientData.add("ScreenHeight", new JsonPrimitive(1000));
+
+        return customClientData;
+    }
+
+    @Test
+    public void testAndroidPlatoWebClient1() {
+        AndroidPlatoWebClient platoClient = null;
+        JsonObject customClientData = genMockCustomClientData();
+        try {
+            platoClient = new AndroidPlatoWebClient(platoHandwritingEndpoint,
+                                                    platoTokenRecogEndpoint,
+                                                    customClientData);
+        } catch (HandwritingEngineException exc) {
+            throw new RuntimeException(exc.getMessage());
+        }
+
+        System.out.println("Obtained new handwriting engine from \"" +
+                platoHandwritingEndpoint + "\": \"" +
+                platoClient.getHandwritingEngineUuid() + "\"");
+
+        /* First stroke */
+        CWrittenToken wt = new CWrittenToken();
+
+        CStroke s0 = new CStroke(0.0f, 0.0f);
+        s0.addPoint(1.0f, 1.0f);
+        wt.addStroke(s0);
+
+        /* Second stroke */
+        CStroke s1 = new CStroke(0.0f, 1.0f);
+        s1.addPoint(1.0f, 0.0f);
+        s1.addPoint(2.0f, 0.0f);
+        wt.addStroke(s1);
+
+        /* Second set of strokes */
+        CStroke ss1 = str2CStroke("[[418,129],[419,131],[419,134],[419,137],[419,140],[420,148],[421,155],[421,163],[422,169],[422,172],[422,177],[422,181],[422,189],[422,200],[423,207],[423,213],[423,218],[423,225],[423,228],[423,232],[423,238],[423,241],[423,244],[423,247],[422,250],[422,252],[422,253],[422,254],[422,256],[422,257],[422,258],[422,259],[421,260],[421,261],[421,262],[421,263],[421,265],[421,266],[420,268],[419,270],[419,271],[419,273],[419,274]]");
+        CStroke ss2 = str2CStroke("[[559,188],[560,187],[561,187],[563,185],[564,184],[566,184],[567,184],[568,184],[570,184],[571,184],[573,183],[576,183],[579,183],[582,183],[585,183],[590,183],[596,183],[603,184],[608,184],[616,184],[621,185],[626,185],[632,185],[635,185],[636,185],[639,185],[640,185],[641,185],[642,185],[644,185],[645,185],[646,185],[647,185],[648,184],[649,184],[650,184],[652,184],[653,184]]");
+        CStroke ss3 = str2CStroke("[[609,237],[610,237],[614,237],[617,237],[619,236],[622,236],[626,235],[632,233],[634,233],[636,233],[639,233],[641,232],[642,232],[644,232],[647,232],[648,232]]");
+        CStroke ss4 = str2CStroke("[[744,175],[744,174],[744,172],[746,172],[749,171],[752,169],[755,169],[757,168],[758,168],[760,168],[761,168],[762,168],[764,168],[766,168],[767,170],[770,171],[772,173],[773,175],[776,179],[777,180],[778,183],[779,186],[780,191],[782,197],[782,200],[782,203],[782,206],[783,209],[783,211],[782,215],[780,218],[777,222],[773,225],[770,229],[767,232],[762,234],[759,236],[754,240],[750,242],[748,243],[747,243],[747,244],[746,244],[745,245],[744,246],[743,246],[742,248],[741,248],[741,249],[745,251],[748,253],[754,255],[760,257],[765,259],[769,260],[772,260],[775,261],[776,262]]");
+
+        CStroke s2 = new CStroke(10.0f, 1.0f);
+        s2.addPoint(20.0f, 1.1f);
+
+        JsonObject tokenRecogResp;
+        try {
+            tokenRecogResp = platoClient.recognizeToken(wt);
+        } catch (HandwritingEngineException exc) {
+            throw new RuntimeException(exc.getMessage());
+        }
+
+        assertTrue(tokenRecogResp.isJsonObject());
+        assertTrue(tokenRecogResp.has("winnerTokenName"));
+        assertTrue(tokenRecogResp.get("winnerTokenName").isJsonPrimitive());
+        assertTrue(tokenRecogResp.get("winnerTokenName").getAsString().equals("."));
+
+        CWrittenTokenSet wtSet = null;
+        try {
+            /* Add stroke request */
+            platoClient.addStroke(s1);
+            wtSet = platoClient.getTokenSet();
+
+            assertEquals(wtSet.getNumTokens(), 1);
+            assertEquals(wtSet.recogWinners.size(), 1);
+            assertTrue(wtSet.recogWinners.get(0).equals("."));
+
+            /* Add another stroke */
+            platoClient.addStroke(s2);
+            wtSet = platoClient.getTokenSet();
+
+            assertEquals(wtSet.getNumTokens(), 2);
+            assertEquals(wtSet.recogWinners.size(), 2);
+            assertTrue(wtSet.recogWinners.get(1).equals("-"));
+
+            /* Remove last token */
+            platoClient.removeLastToken();
+            wtSet = platoClient.getTokenSet();
+
+            assertEquals(wtSet.getNumTokens(), 1);
+            assertEquals(wtSet.recogWinners.size(), 1);
+
+            /* Force-set recognition winner */
+            platoClient.forceSetRecogWinner(0, "1");
+            wtSet = platoClient.getTokenSet();
+
+            assertEquals(wtSet.getNumTokens(), 1);
+            assertEquals(wtSet.recogWinners.size(), 1);
+            assertTrue(wtSet.recogWinners.get(0).equals("1"));
+
+            /* Clear all strokes */
+            platoClient.clearStrokes();
+            wtSet = platoClient.getTokenSet();
+
+            assertEquals(wtSet.getNumTokens(), 0);
+            assertEquals(wtSet.recogWinners.size(), 0);
+
+            /* Second set of strokes */
+            platoClient.addStroke(ss1);
+            wtSet = platoClient.getTokenSet();
+
+            assertEquals(wtSet.getNumTokens(), 1);
+            assertEquals(wtSet.recogWinners.size(), 1);
+            assertTrue(wtSet.recogWinners.get(0).equals("1"));
+
+            final String forceSetName = "J";
+            platoClient.forceSetRecogWinner(0, forceSetName);
+            wtSet = platoClient.getTokenSet();
+
+            assertEquals(wtSet.getNumTokens(), 1);
+            assertEquals(wtSet.recogWinners.size(), 1);
+            assertTrue(wtSet.recogWinners.get(0).equals(forceSetName));
+
+            platoClient.addStroke(ss2);
+            platoClient.addStroke(ss3);
+            wtSet = platoClient.getTokenSet();
+
+            assertEquals(wtSet.getNumTokens(), 3);
+            assertEquals(wtSet.recogWinners.size(), 3);
+            assertTrue(wtSet.recogWinners.get(1).equals("-"));
+            assertTrue(wtSet.recogWinners.get(2).equals("-"));
+
+            platoClient.mergeStrokesAsToken(new int[] {1, 2});
+            wtSet = platoClient.getTokenSet();
+
+            assertEquals(wtSet.getNumTokens(), 2);
+            assertEquals(wtSet.recogWinners.size(), 2);
+            assertTrue(wtSet.recogWinners.get(0).equals(forceSetName));
+            assertTrue(wtSet.recogWinners.get(1).equals("="));
+
+            platoClient.addStroke(ss4);
+            wtSet = platoClient.getTokenSet();
+
+            assertEquals(wtSet.getNumTokens(), 3);
+            assertEquals(wtSet.recogWinners.size(), 3);
+            assertTrue(wtSet.recogWinners.get(2).equals("2"));
+
+            TokenSetParserOutput parserOutput = platoClient.parseTokenSet();
+            assertEquals(parserOutput.getStringizerOutput(), "(J = 2)");
+            assertEquals(parserOutput.getEvaluatorOutput(), "2");
+            assertEquals(parserOutput.getMathTex(), "{J}={2}");
+
+        } catch (HandwritingEngineException exc) {
+            throw new RuntimeException(exc.getMessage());
+        }
+    }
+
+    private static CStroke str2CStroke(final String str) {
+        JsonArray pts = jsonParser.parse(str).getAsJsonArray();
+        CStroke stroke = new CStroke(pts.get(0).getAsJsonArray().get(0).getAsFloat(),
+                pts.get(0).getAsJsonArray().get(1).getAsFloat());
+        for (int i = 1; i < pts.size(); ++i) {
+            stroke.addPoint(pts.get(i).getAsJsonArray().get(0).getAsFloat(),
+                    pts.get(i).getAsJsonArray().get(1).getAsFloat());
+        }
+
+        return stroke;
+    }
+}

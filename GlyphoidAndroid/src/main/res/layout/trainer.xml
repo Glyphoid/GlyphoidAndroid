@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/trainerLayout" 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/topCommandPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#454545"
+        android:weightSum="1">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:id="@+id/optionsButton"
+            android:focusableInTouchMode="false"
+            android:background="@drawable/button_bg_general" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:id="@+id/historyButton"
+            android:focusableInTouchMode="false"
+            android:background="@drawable/button_bg_general" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:id="@+id/varMapImageButton"
+            android:focusableInTouchMode="false"
+            android:background="@drawable/button_bg_general" />
+    </LinearLayout>
+
+    <me.scai.plato.android.views.PlatoBoard
+        android:id="@+id/trainer1"
+        android:layout_width="wrap_content"
+        android:layout_height="232dp"
+        android:layout_weight="0.48" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="#454545"
+        android:id="@+id/FineActionsPanel">
+
+    </LinearLayout>
+
+
+    <LinearLayout
+            android:id="@+id/cPanel"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:background="#454545"
+            android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/parseTokenSetButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:text="@string/ui_parse_button_caption"
+            android:textSize="10sp"
+            android:background="@drawable/button_bg_parse" />
+
+
+        <Button
+            android:id="@+id/clearButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:text="@string/ui_delete_token_button_caption"
+            android:textSize="10sp"
+            android:longClickable="true"
+            android:background="@drawable/button_bg_general" />
+
+        <Button
+            android:id="@+id/clearAllButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:text="@string/ui_clear_all_caption"
+            android:textSize="10sp"
+            android:longClickable="true"
+            android:background="@drawable/button_bg_general" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:text="@string/ui_merge_button_caption"
+            android:id="@+id/mergeStrokesButton"
+            android:textSize="10sp"
+            android:longClickable="true"
+            android:background="@drawable/button_bg_general" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:text="@string/ui_unmerge_button_caption"
+            android:id="@+id/unmergeStrokesButton"
+            android:textSize="10sp"
+            android:longClickable="true"
+            android:background="@drawable/button_bg_general" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

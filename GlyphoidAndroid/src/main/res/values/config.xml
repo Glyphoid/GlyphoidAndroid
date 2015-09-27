@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mathjax_endpoint">http://platonotes.org/math-jax/math-jax</string>
+    <string name="plato_handwriting_endpoint">http://scai.io/glyphoid/handwriting-bypass</string>
+    <string name="plato_token_recog_endpoint">http://scai.io/glyphoid/token-recog-bypass</string>
+</resources>

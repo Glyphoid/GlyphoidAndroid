@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ui_parse_button_caption">Parse</string>
+
+    <string name="ui_delete_token_button_caption">Delete</string>
+
+    <string name="ui_last_token_button_caption">Last token</string>
+
+    <string name="ui_all_button_caption">All</string>
+
+    <string name="ui_clear_all_caption">Clear</string>
+
+    <string name="ui_merge_button_caption">Merge</string>
+
+    <string name="ui_unmerge_button_caption">Unmerge</string>
+
+    <string name="ui_strokes">strokes</string>
+
+    <string name="ui_ellipsis">…</string>
+
+    <string name="ui_dismiss_parser">Dismiss parser</string>
+
+    <string name="ui_default_options">Restore defaults</string>
+
+    <string name="ui_dismiss_options">Done</string>
+
+    <string name="opt_caption_parse_on_local_device_only">Use local device only</string>
+
+    <string name="opt_caption_display_overlaid_symbols">Display overlaid symbols</string>
+
+    <string name="opt_caption_parser_timeout">Parser timeout (seconds)</string>
+    <string name="opt_caption_parser_timeout_no_units">Parser timeout</string>
+
+    <string name="ui_parser_parsing_result">Parsing result</string>
+    <string name="ui_parser_evaluation_result">Evaluation result</string>
+    <string name="ui_parser_math_tex">Math TeX</string>
+    <string name="ui_parser_math_ml">MathML</string>
+    <string name="ui_parser_generate_image">Generate image</string>
+</resources>

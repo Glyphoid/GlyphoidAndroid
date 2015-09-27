@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/deleteLastTokenFile"
+        android:title="Delete last saved token"/>
+    <item android:id="@+id/showSummary" 
+          android:title="Show data summary"/>
+    <item android:id="@+id/saveToken" 
+          android:title="Save token..."/>       
+    <item android:id="@+id/saveTokenSet" 
+          android:title="Save token set"/>    
+    <item android:id="@+id/tokenEngineSettings" 
+          android:title="Token engine settings"/>
+    <item android:id="@+id/trainTokenEngine" 
+          android:title="Train token engine"/>
+    <item android:id="@+id/reFormatImFiles"
+          android:title="Reformat all .im files"/>
+ </menu>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="plato_board_state_key">PLATO_BOARD_STATE</string>
+</resources>
